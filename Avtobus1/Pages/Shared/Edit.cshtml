@@ -1,0 +1,33 @@
+﻿@model Avtobus1BLL.DTOs.UrlElementDTO
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Editing url</h1>
+
+<hr />
+<div>
+    <div>
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly"></div>
+            <div>
+                <label asp-for="LongUrl"></label>
+                <input asp-for="LongUrl"/>
+                <span asp-validation-for="LongUrl"></span>
+            </div>
+            <div>
+                <label asp-for="ShortUrl"></label>
+                <input asp-for="ShortUrl"/>
+                <span asp-validation-for="ShortUrl"></span>
+            </div>
+            <div>
+                <input type="submit" value="Save"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

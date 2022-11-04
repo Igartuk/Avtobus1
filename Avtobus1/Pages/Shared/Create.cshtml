@@ -1,0 +1,27 @@
+﻿@model Avtobus1BLL.DTOs.CreateUrlDTO
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>ShortUrl</h4>
+<hr />
+<div>
+    <div>
+        <form asp-action="Create">
+            <div>
+                <label asp-for="LongUrl"></label>
+                <input asp-for="LongUrl"/>
+            </div>            
+            <div>
+                <input type="submit" value="Create"/>
+            </div>
+        </form>
+        <br />
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

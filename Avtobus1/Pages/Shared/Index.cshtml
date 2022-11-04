@@ -1,0 +1,51 @@
+﻿
+@model IEnumerable<Avtobus1BLL.DTOs.UrlElementDTO>
+
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<a asp-action="Create">Создать</a>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>LongUrl</th>
+                <th>ShortUrl</th>
+                <th>Creation Date</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var url in Model)
+            {
+                <tr class="item">
+                    <td>@url.LongUrl</td>
+                    <td class="initCounter">
+                        <form asp-action="Redirect" method="post" asp-route-id="@url.Id" target="_blank">
+                            <input type="submit" value="@url.ShortUrl" />
+                        </form>
+                    </td>
+                    <td>@url.CreateDate</td>
+                    <td class="counter">@url.Counter</td>
+                    <td><a asp-action="Delete" asp-route-id="@url.Id">Удалить</a></td>
+                    <td><a asp-action="Edit" asp-route-id="@url.Id">Редактировать</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<script type="text/javascript">
+    var counts = document.querySelectorAll(".item");
+    counts.forEach(Handler);
+
+    function Handler(count) {
+        var increment = count.querySelector(".initCounter");
+        var number = count.querySelector(".counter");
+
+        increment.addEventListener("click", function () {
+            number.innerText++;
+        });
+    }
+</script>
