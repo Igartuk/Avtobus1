@@ -15,7 +15,7 @@ namespace Avtobus1DAL.Models
     {
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {
-            
+            Database.EnsureCreated();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
